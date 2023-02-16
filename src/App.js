@@ -8,7 +8,6 @@ import Footer from './components/layout/Footer';
 import NotFound from './components/pages/NotFound';
 
 /* Import Layout */
-
 import Header from './components/layout/Header';
 import Navbar from './components/layout/Navbar';
 import About from './components/pages/About';
