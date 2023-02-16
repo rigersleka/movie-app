@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react';
 
-const Home = () => {
-    return (
-       <Fragment>
-        Home Todo...
-       </Fragment>
+import SearchMovie from '../../movie/SearchMovie';
 
-    )
-}
+const Home = ({ search }) => {
+  return (
+    <Fragment>
+      <SearchMovie searchMovie={search} />
+    </Fragment>
+  );
+};
 
 export default Home;

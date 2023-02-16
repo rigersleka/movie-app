@@ -49,6 +49,29 @@ const App = () => {
         <MovieItem key={`${index}-${movie.Title}`} movie={movie} />
       ))
     );
+
+  const searchMovie = (searchValue) => {
+    debugger;
+    dispatch({
+      type: SEARCH_MOVIES_REQUEST,
+    });
+
+    axios(`https://www.omdbapi.com/?s=${searchValue}&apiKey=6c3a2d45`).then(
+      (jsonResponse) => {
+        if (jsonResponse.data.Response === 'True') {
+          dispatch({
+            type: SEARCH_MOVIES_SUCCESS,
+            payload: jsonResponse.data.Search,
+          });
+        } else {
+          dispatch({
+            type: SEARCH_MOVIES_FAILURE,
+            error: jsonResponse.data.Error,
+          });
+        }
+      }
+    );
+  };
   return (
     <div className='App'>
       <Header title='Movie App' />
