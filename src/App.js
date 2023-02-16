@@ -8,13 +8,12 @@ import Footer from './components/layout/Footer';
 import NotFound from './components/pages/NotFound';
 
 /* Import Layout */
-import spinner from './assets/spinner.gif';
+
 import Header from './components/layout/Header';
 import Navbar from './components/layout/Navbar';
 import About from './components/pages/About';
 
 /* Import Reducer */
-import MovieItem from './movie/MovieItem';
 import { initialState, movieReducer } from './store/movieReducer';
 import {
   SEARCH_MOVIES_FAILURE,
@@ -36,19 +35,6 @@ const App = () => {
       });
     });
   }, []);
-
-  const showMovies =
-    loading && !errorMessage ? (
-      <>
-        <img src={spinner} alt='Loading spinner' />
-      </>
-    ) : errorMessage ? (
-      <div className='errorMessage'>{errorMessage}</div>
-    ) : (
-      movies.map((movie, index) => (
-        <MovieItem key={`${index}-${movie.Title}`} movie={movie} />
-      ))
-    );
 
   const searchMovie = (searchValue) => {
     debugger;
@@ -81,16 +67,24 @@ const App = () => {
           <Navbar title='Movie App Container' icon='fa fa-file-movie-o' />
           <div className='container'>
             <Routes>
-              <Route exact path='/' element={<Home search={searchMovie} />} />
+              <Route
+                exact
+                path='/'
+                element={
+                  <Home
+                    search={searchMovie}
+                    movies={movies}
+                    loading={loading}
+                    errorMessage={errorMessage}
+                  />
+                }
+              />
               <Route path='/about' element={<About />} />
               <Route path='*' element={<NotFound />} />
             </Routes>
           </div>
         </div>
       </Router>
-
-      <div>{showMovies}</div>
-
       <Footer />
     </div>
   );
