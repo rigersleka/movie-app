@@ -15,8 +15,8 @@ import About from './components/pages/About';
 /* Import Reducer */
 import { initialState, movieReducer } from './store/movieReducer';
 import {
-  SEARCH_MOVIES_FAILURE,
   SEARCH_MOVIES_REQUEST,
+  SEARCH_MOVIES_FAILURE,
   SEARCH_MOVIES_SUCCESS,
 } from './store/types';
 
