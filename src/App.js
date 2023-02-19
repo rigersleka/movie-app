@@ -12,15 +12,14 @@ import Header from './components/layout/Header';
 import Navbar from './components/layout/Navbar';
 import About from './components/pages/About';
 
-/* Import Reducer */
+/* Import Reducer Types & Config */
 import { initialState, movieReducer } from './store/movieReducer';
 import {
   SEARCH_MOVIES_REQUEST,
   SEARCH_MOVIES_FAILURE,
   SEARCH_MOVIES_SUCCESS,
 } from './store/types';
-
-const MOVIE_APP_URL = 'http://www.omdbapi.com/?s=bridge&apiKey=6c3a2d45';
+import { MOVIE_APP_URL, REACT_OMD_API } from './config';
 
 const App = () => {
   const [state, dispatch] = useReducer(movieReducer, initialState);
@@ -36,12 +35,11 @@ const App = () => {
   }, []);
 
   const searchMovie = (searchValue) => {
-    debugger;
     dispatch({
       type: SEARCH_MOVIES_REQUEST,
     });
 
-    axios(`https://www.omdbapi.com/?s=${searchValue}&apiKey=6c3a2d45`).then(
+    axios(`${REACT_OMD_API}/?s=${searchValue}&apiKey=6c3a2d45`).then(
       (jsonResponse) => {
         if (jsonResponse.data.Response === 'True') {
           dispatch({
@@ -57,6 +55,7 @@ const App = () => {
       }
     );
   };
+
   return (
     <div className='App'>
       <Header title='Movie App' />

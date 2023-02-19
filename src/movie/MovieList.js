@@ -4,7 +4,7 @@ import React, { Fragment } from 'react';
 import MovieItem from './MovieItem';
 import Spinner from '../components/layout/Spinner';
 
-const MovieList = ({ search, movies, loading, errorMessage }) => {
+const MovieList = ({ movies, loading, errorMessage }) => {
   const showMovies =
     loading && !errorMessage ? (
       <>
@@ -13,9 +13,11 @@ const MovieList = ({ search, movies, loading, errorMessage }) => {
     ) : errorMessage ? (
       <div className='errorMessage'>{errorMessage}</div>
     ) : (
-      movies.map((movie, index) => (
-        <MovieItem key={`${index}-${movie.Title}`} movie={movie} />
-      ))
+      movies
+        .map((movie, index) => (
+          <MovieItem key={`${index}-${movie.Title}`} movie={movie} />
+        ))
+        .slice(5)
     );
 
   return <Fragment>{showMovies}</Fragment>;
