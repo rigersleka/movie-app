@@ -12,7 +12,7 @@ Functionalities:
   - list of movies, who were searched
   - simulate a real web-app working from scratch using git flow
   - deploy using Netifly
-  - 
+  
 Libraries:
   - reactJs 18+
   - axios
