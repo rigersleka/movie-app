@@ -2,6 +2,23 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Functionalities:
+  - sceleture of Project
+  - route functionality
+  - manage data using state/props
+  - search ttiles of a movie
+  - list of users, who were searched
+  - simulate a real web-app working from scratch using git flow
+  - deploy using Netifly
+Libraries:
+  - reactJs 18+
+  - axios
+  - react-router-dom 
+  
+  
+Deployed using Netifly: <a href="https://githubsearch-rleka.netlify.app/" target="_blank">LIVE DEMO</a>
+
+    
 ## Available Scripts
 
 In the project directory, you can run:
