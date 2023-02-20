@@ -1,26 +1,34 @@
 import React, { useState } from 'react';
 
-const SearchMovie = ({ searchMovie }) => {
-  const [movieSearch, setMovieSearch] = useState('');
+const SearchMovie = ({ search }) => {
+  const [searchMovie, setMovieValue] = useState('');
 
-  const onChangeSearchMovie = (event) => {
-    event.preventDefault();
+  const handleSearchMovieInput = (e) => {
+    setMovieValue(e.target.value);
+  };
 
-    searchMovie(movieSearch);
-    setMovieSearch('');
+  const resetInputField = () => {
+    setMovieValue('');
   };
 
   const onSubmitMovieSearch = (e) => {
-    setMovieSearch(e.target.value);
+    e.preventDefault();
+    search(searchMovie);
+    resetInputField();
   };
 
   return (
     <div>
       <h3>Search Movie</h3>
-      <form className='search'>
-        <input value={movieSearch} onChange={onChangeSearchMovie} type='text' />
 
-        <input onClick={onSubmitMovieSearch} type='submit' value='SEARCH' />
+      <form className='search'>
+        <input
+          type='text'
+          value={searchMovie}
+          onChange={handleSearchMovieInput}
+          placeholder="Search Movies..."
+        />
+        <input type='submit' value='Search' onClick={onSubmitMovieSearch} />
       </form>
     </div>
   );
