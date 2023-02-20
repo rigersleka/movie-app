@@ -1,11 +1,11 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 
 const NotFound = () => {
-    return (
-        <Fragment>
-                <h1>404 Not Found</h1>
-        </Fragment>
-    )
-}
+  return (
+    <Fragment>
+      <h1>404 Not Found</h1>
+    </Fragment>
+  );
+};
 
-export default NotFound
+export default NotFound;

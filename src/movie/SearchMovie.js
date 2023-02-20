@@ -4,9 +4,6 @@ const SearchMovie = ({ search, movies }) => {
   const [searchTitleMovie, setTitleMovieValue] = useState('');
 
   const onChangeSearchMovieTitle = (e) => {
-    const searchTitle = e.target.value;
-    setTitleMovieValue(searchTitle);
-
     const results = movies.filter((movie) => {
       if (e.target.value === '') return search;
 
@@ -46,7 +43,7 @@ const SearchMovie = ({ search, movies }) => {
   };
 
   return (
-    <div>
+    <div className='App'>
       <h3>Search Movie</h3>
 
       <form className='search'>

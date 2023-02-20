@@ -57,7 +57,7 @@ const App = () => {
   };
 
   return (
-    <div className='App'>
+    <div className='App' style={userStyle}>
       <Header title='Movie App' />
 
       <Router>
@@ -86,6 +86,12 @@ const App = () => {
       <Footer />
     </div>
   );
+};
+
+const userStyle = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(3, 1fr)',
+  gridGap: '1rem',
 };
 
 export default App;
