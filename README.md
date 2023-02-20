@@ -16,7 +16,7 @@ Libraries:
   - react-router-dom 
   
   
-Deployed using Netifly: <a href="https://githubsearch-rleka.netlify.app/" target="_blank">LIVE DEMO</a>
+Deployed using Netifly: <a href="https://test-deployment-movie-app.netlify.app/" target="_blank">LIVE DEMO</a>
 
     
 ## Available Scripts
