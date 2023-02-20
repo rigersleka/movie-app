@@ -25,21 +25,23 @@ const App = () => {
   const [state, dispatch] = useReducer(movieReducer, initialState);
   const { movies, errorMessage, loading } = state;
 
-  useEffect(() => {
-    axios.get(MOVIE_APP_URL).then((jsonResponse) => {
+  useEffect(() => {getMovies()}, []);
+
+  const getMovies = async () => {
+    await axios.get(MOVIE_APP_URL).then((jsonResponse) => {
       dispatch({
         type: SEARCH_MOVIES_SUCCESS,
         payload: jsonResponse.data.Search,
       });
     });
-  }, []);
+  };
 
-  const searchMovieByTitle = (searchValue) => {
+  const searchMovieByTitle = async (searchValue) => {
     dispatch({
       type: SEARCH_MOVIES_REQUEST,
     });
 
-    axios(`${REACT_OMD_API}/?s=${searchValue}&apiKey=6c3a2d45`).then(
+    await axios(`${REACT_OMD_API}/?s=${searchValue}&apiKey=6c3a2d45`).then(
       (jsonResponse) => {
         if (jsonResponse.data.Response === 'True') {
           dispatch({
