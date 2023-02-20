@@ -1,19 +1,47 @@
 import React, { useState } from 'react';
 
-const SearchMovie = ({ search }) => {
-  const [searchMovie, setMovieValue] = useState('');
+const SearchMovie = ({ search, movies }) => {
+  const [searchTitleMovie, setTitleMovieValue] = useState('');
 
-  const handleSearchMovieInput = (e) => {
-    setMovieValue(e.target.value);
+  const onChangeSearchMovieTitle = (e) => {
+    const searchTitle = e.target.value;
+    setTitleMovieValue(searchTitle);
+
+    const results = movies.filter((movie) => {
+      if (e.target.value === '') return search;
+
+      return movie.Title.toLowerCase().includes(e.target.value.toLowerCase());
+    });
+
+    setTitleMovieValue(results);
+    let newList = [];
+
+    if (e.target.value !== '') {
+      // assign the original list
+      //determine which items should be displayed (use .filter array helper)
+      newList = movies.filter((movie) => {
+        // change currentItem and searchItem to LowerCase
+        const movieTitle = movie.Title.toLowerCase();
+        const filter = e.target.value.toLowerCase();
+
+        // check to see if title element of currentItem includes searchTerm
+        return movieTitle.includes(filter);
+      });
+    } else {
+      // if search-bar is empty set into newList the original movie-list
+      newList = movies;
+    }
+
+    setTitleMovieValue(newList);
   };
 
   const resetInputField = () => {
-    setMovieValue('');
+    setTitleMovieValue('');
   };
 
-  const onSubmitMovieSearch = (e) => {
+  const findMovieByTitle = (e) => {
     e.preventDefault();
-    search(searchMovie);
+    search(searchTitleMovie);
     resetInputField();
   };
 
@@ -24,11 +52,18 @@ const SearchMovie = ({ search }) => {
       <form className='search'>
         <input
           type='text'
-          value={searchMovie}
-          onChange={handleSearchMovieInput}
-          placeholder="Search Movies..."
+          placeholder='Search Movies by title...'
+          value={searchTitleMovie}
+          onChange={onChangeSearchMovieTitle}
         />
-        <input type='submit' value='Search' onClick={onSubmitMovieSearch} />
+
+        <button
+          className='btn btn-outline-secondary'
+          type='button'
+          onClick={findMovieByTitle}
+        >
+          Search
+        </button>
       </form>
     </div>
   );

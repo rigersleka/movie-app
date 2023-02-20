@@ -5,7 +5,7 @@ import SearchMovie from '../../movie/SearchMovie';
 const Home = ({ search, movies, loading, errorMessage }) => {
   return (
     <Fragment>
-      <SearchMovie search={search} />
+      <SearchMovie search={search}  movies={movies}/>
 
       <MovieList
         movies={movies}

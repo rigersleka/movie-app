@@ -25,9 +25,6 @@ const App = () => {
   const [state, dispatch] = useReducer(movieReducer, initialState);
   const { movies, errorMessage, loading } = state;
 
-  //TODo ora 07:30 neser
-  //TODO create a new serviceFile where you can add controls there
-  //TODO check ne React-Crud repo si eshte bere search
   useEffect(() => {
     axios.get(MOVIE_APP_URL).then((jsonResponse) => {
       dispatch({
@@ -37,7 +34,7 @@ const App = () => {
     });
   }, []);
 
-  const searchMovie = searchValue => {
+  const searchMovieByTitle = (searchValue) => {
     dispatch({
       type: SEARCH_MOVIES_REQUEST,
     });
@@ -73,7 +70,7 @@ const App = () => {
                 path='/'
                 element={
                   <Home
-                    search={searchMovie}
+                    search={searchMovieByTitle}
                     movies={movies}
                     loading={loading}
                     errorMessage={errorMessage}
