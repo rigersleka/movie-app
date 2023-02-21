@@ -17,7 +17,7 @@ const MovieList = ({ movies, loading, errorMessage }) => {
         .map((movie, index) => (
           <MovieItem key={`${index}-${movie.Title}`} movie={movie} />
         ))
-        .slice(5)
+        .slice(0, 5)
     );
 
   return <Fragment>{showMovies}</Fragment>;

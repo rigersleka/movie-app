@@ -25,7 +25,9 @@ const App = () => {
   const [state, dispatch] = useReducer(movieReducer, initialState);
   const { movies, errorMessage, loading } = state;
 
-  useEffect(() => {getMovies()}, []);
+  useEffect(() => {
+    getMovies();
+  }, []);
 
   const getMovies = async () => {
     await axios.get(MOVIE_APP_URL).then((jsonResponse) => {
@@ -36,12 +38,12 @@ const App = () => {
     });
   };
 
-  const searchMovieByTitle = async (searchValue) => {
+  const searchMovieByTitle = (searchValue) => {
     dispatch({
       type: SEARCH_MOVIES_REQUEST,
     });
 
-    await axios(`${REACT_OMD_API}/?s=${searchValue}&apiKey=6c3a2d45`).then(
+    axios(`${REACT_OMD_API}/?s=${searchValue}&apiKey=6c3a2d45`).then(
       (jsonResponse) => {
         if (jsonResponse.data.Response === 'True') {
           dispatch({
@@ -57,6 +59,7 @@ const App = () => {
       }
     );
   };
+
 
   return (
     <div className='App' style={userStyle}>

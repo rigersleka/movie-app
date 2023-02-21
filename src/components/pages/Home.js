@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react';
+
 import MovieList from '../../movie/MovieList';
 import SearchMovie from '../../movie/SearchMovie';
 
 const Home = ({ search, movies, loading, errorMessage }) => {
   return (
     <Fragment>
-      <SearchMovie search={search}  movies={movies}/>
+      <SearchMovie search={search} movies={movies} />
 
       <MovieList
         movies={movies}
