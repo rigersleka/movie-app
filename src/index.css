@@ -221,6 +221,7 @@ movieapp > h1 {
   min-height: 4.4rem;
   padding: 0.4rem 0.8rem;
   border: 2px solid #565656;
+  margin: 1.2rem 0;
 }
 .input-text:focus {
   box-shadow: inset 0 0 0 2px;

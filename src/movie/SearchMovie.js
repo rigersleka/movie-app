@@ -19,7 +19,6 @@ const SearchMovie = ({ search, movies }) => {
   };
 
   return (
-    <div>
       <form className='form search'>
         <input
           type='text'
@@ -37,7 +36,6 @@ const SearchMovie = ({ search, movies }) => {
           Search
         </button>
       </form>
-    </div>
   );
 };
 
