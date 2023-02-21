@@ -22,5 +22,4 @@ const MovieList = ({ movies, loading, errorMessage }) => {
 
   return <Fragment>{showMovies}</Fragment>;
 };
-
 export default MovieList;

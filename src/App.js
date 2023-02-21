@@ -60,34 +60,30 @@ const App = () => {
     );
   };
 
-
   return (
-    <div className='App' style={userStyle}>
-      <Header title='Movie App' />
+    <div style={userStyle}>
+      <Header title='Movie App Finder' />
 
       <Router>
-        <div className='App'>
-          <Navbar title='Movie App Container' icon='fa fa-file-movie-o' />
-          <div className='container'>
-            <Routes>
-              <Route
-                exact
-                path='/'
-                element={
-                  <Home
-                    search={searchMovieByTitle}
-                    movies={movies}
-                    loading={loading}
-                    errorMessage={errorMessage}
-                  />
-                }
+        <Navbar />
+        <Routes>
+          <Route
+            exact
+            path='/'
+            element={
+              <Home
+                search={searchMovieByTitle}
+                movies={movies}
+                loading={loading}
+                errorMessage={errorMessage}
               />
-              <Route path='/about' element={<About />} />
-              <Route path='*' element={<NotFound />} />
-            </Routes>
-          </div>
-        </div>
+            }
+          />
+          <Route path='/about' element={<About />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
       </Router>
+
       <Footer />
     </div>
   );

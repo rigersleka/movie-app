@@ -6,7 +6,6 @@ const SearchMovie = ({ search, movies }) => {
   const onChangeSearchMovieTitle = (e) => {
      
    setTitleMovieValue(e.target.value.toLowerCase());    
-    /* resetInputField(); */
   };
 
   const resetInputField = () => {
@@ -16,22 +15,22 @@ const SearchMovie = ({ search, movies }) => {
   const findMovieByTitle =   (e) => {
     e.preventDefault();
     search(searchTitleMovie);
-   // resetInputField();
+   resetInputField();
   };
 
   return (
-    <div className='App'>
-      <h3>Search Movie</h3>
-
-      <form className='search'>
+    <div>
+      <form className='form search'>
         <input
           type='text'
+          className='input-text'
+          value={searchTitleMovie}
           placeholder='Search Movies by title...'
           onChange={onChangeSearchMovieTitle}
         />
 
         <button
-          className='btn btn-outline-secondary'
+         className="btn btn-dark btn-block"
           type='button'
           onClick={findMovieByTitle}
         >
