@@ -18,6 +18,11 @@ Libraries:
   - axios
   - react-router-dom 
   
+Improvements:
+  -use ts
+  -automation-testing
+  -responsivness
+  -load-more
 Deployed using Netifly: <a href="https://test-deployment-movie-app.netlify.app/" target="_blank">LIVE DEMO</a>
 
     
